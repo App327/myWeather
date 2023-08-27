@@ -1,0 +1,209 @@
+body {
+ font-family: 'Arial', 'Roboto', 'Segoe UI', 'Verdana', 'Lato';
+ margin: 0;
+}
+
+.notification {
+ position: fixed;
+ top: -110px;
+ left: 0;
+ opacity: 0;
+ width: 100%;
+ height: 100px;
+ padding-left: 10px;
+ animation: showNotif 500ms forwards;
+}
+
+@keyframes showNotif {
+ from { top: -110px; opacity: 0; }
+ to { top: 0; opacity: 1; }
+}
+
+.info {
+ background: skyblue;
+ color: black;
+}
+.warning {
+ background: gold;
+ color: black;
+}
+.error {
+ background: pink;
+ color: black;
+}
+.load {
+ background: silver;
+ color: black;
+}
+
+textarea, input, select {
+ padding: 5px;
+ border: 2px solid dodgerblue;
+ color: black;
+ border-radius: 5px;
+ background: white;
+ font-family: inherit;
+}
+
+textarea, input, select, button {
+ outline-style: solid;
+ outline-color: skyblue;
+ outline-width: 0px;
+ transition: outline-width 200ms;
+}
+
+input, select {
+ height: 40px;
+}
+
+input:hover, textarea:hover, select:hover {
+ border: 2px solid royalblue;
+}
+
+button:focus, textarea:focus, input:focus, select:focus {
+ outline-style: solid;
+ outline-color: skyblue;
+ outline-width: 3px;
+ transition: outline-width 200ms;
+}
+
+button {
+ padding: 5px;
+ border: none;
+ background: dodgerblue;
+ color: white;
+ height: 50px;
+ win-width: 50px;
+ border-radius: 5px;
+ user-select: none;
+ font-family: inherit;
+ position: relative;
+ overflow: hidden;
+}
+button:hover {
+ background: royalblue;
+}
+
+.btn {
+ padding: 5px;
+ border: none;
+ background: dodgerblue;
+ color: white;
+ height: 40px;
+ width: 40px;
+ border-radius: 50%;
+ user-select: none;
+}
+.btn:hover {
+ background: royalblue;
+}
+
+.btn_alt {
+ padding: 5px;
+ border: 2px solid dodgerblue;
+ background: white;
+ color: black;
+ height: 50px;
+ min-width: 50px;
+ border-radius: 5px;
+ user-select: none;
+}
+.btn_alt:hover {
+ background: rgb(245, 245, 255);
+}
+
+fieldset {
+ border: 2px solid dodgerblue;
+ border-radius: 3px;
+}
+
+
+.window {
+ border-radius: 5px;
+ box-shadow: 0 0 10px 5px grey;
+ position: fixed;
+ background: white;
+ width: 90%;
+ height: 90%;
+ top: 5%;
+ left: 5%;
+ animation: showWin 450ms forwards;
+}
+
+@keyframes showWin {
+ from { transform: scale(110%, 110%); }
+ to { transform: scale(90%, 90%); }
+}
+
+
+.win-close {
+ position: absolute;
+ top: 0;
+ right: 0;
+ border: none;
+ background: white;
+ border-radius: 5px;
+ height: 40px;
+ width: 40px;
+ color: black;
+}
+
+.win-close:hover {
+ background: red;
+ color: white;
+}
+
+.win-close:focus {
+ outline-color: pink;
+}
+
+.win-action1 {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 50%;
+}
+
+.win-action2 {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ width: 50%;
+}
+
+.gumines {
+ position: absolute;
+ background: rgba(0,0,0,0.15);
+ border-radius: 100%;
+ -webkit-transform: scale(0);
+ transform: scale(0);
+ pointer-events: none;
+}
+
+.gumines.show {
+ -webkit-animation: ripple .75s ease-out;
+ animation: ripple .75s ease-out;
+}
+
+@-webkit-keyframes ripple {
+ to {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  opacity: 0;
+ }
+}
+
+@keyframes ripple {
+ to {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  opacity: 0;
+ }
+}
+
+
+.scroll {
+ overflow: auto;
+ white-space: nowrap;
+ 
+}
