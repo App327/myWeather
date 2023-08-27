@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg">
+ <title>Облачно</title>
+ <circle cx="10" cy="10" r="9" fill="white" stroke="dodgerblue" stroke-width="1px" />
+ <path d="M 10 0.5 L 10 10 L 19 10 Q 18 2 10 1 L 10 19 Q 18.5 17.5 19 10" stroke="dodgerblue" fill="dodgerblue" />
+</svg>
