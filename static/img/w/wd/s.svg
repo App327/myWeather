@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg">
+ <title>Южный ветер</title>
+ <line x1="10" y1="20" x2="10" y2="2" stroke="lightblue" stroke-width="2px" fill="none" />
+ <polyline points="1 10, 10 1, 19 10" stroke="lightblue" stroke-width="2px" fill="none" />
+</svg>
