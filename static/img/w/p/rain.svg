@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg">
+ <title>Дождь</title>
+ <rect x="1" y="1" width="18" height="18" stroke="dodgerblue" stroke-width="1px" fill="white" />
+ <circle cx="5" cy="5" r="2" fill="dodgerblue" />
+ <circle cx="15" cy="5" r="2" fill="dodgerblue" />
+ <circle cx="5" cy="15" r="2" fill="dodgerblue" />
+ <circle cx="15" cy="15" r="2" fill="dodgerblue" />
+</svg>

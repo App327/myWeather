@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg">
+ <title>Гроза</title>
+ <polyline points="1 19, 1 1, 19 1, 2 10, 19 19" stroke="dodgerblue" stroke-width="1px" fill="none" />
+ <polyline points="12.5 19, 19 19, 15 12.5" stroke="dodgerblue" stroke-width="1px" fill="none" />
+</svg>

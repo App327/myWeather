@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg>
+<svg width="20px" height="20px" xmlns="http://www.w3.org/2000/svg">
+ <title>Роса</title>
+ <line x1="1" y1="19.5" x2="19.5" y2="19.5" stroke="dodgerblue" stroke-width="1px" fill="none" />
+ <circle r="6" cx="10" cy="19" stroke="dodgerblue" stroke-width="1px" fill="none" />
+</svg>
