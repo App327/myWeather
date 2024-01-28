@@ -150,7 +150,7 @@ if (!$link) {
 }
 
 echo '</textarea>
-  <p align="right"><a href="/">На главную</a></p>
+  <p align="right"><a href="/"><span class="material-symbols-outlined">home</span> На главную</a></p>
  </body>
 </html>';
 
