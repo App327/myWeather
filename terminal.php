@@ -27,13 +27,13 @@ echo '<!DOCTYPE html>
   </style>
  </head>
  <body>
-  <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt=""> В этом браузере отключён JavaScript</div></noscript>
+  <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript</div></noscript>
   <h2>Терминал</h2>
   <form action="/terminal.php" method="get">
    <input type="text" name="cmd" placeholder="Команда" value="'.$cmd_1.'">
-   <input type="submit" class="material-symbols-outlined" value="arrow_right">
+   <input type="submit" class="material-symbols-outlined" value="arrow_right" aria-label="Выполнить введённую команду">
   </form>
-  <textarea placeholder="Результат" readonly="" cols="40" rows="10">';
+  <textarea placeholder="Результат" readonly cols="40" rows="10">';
 
 if ($cmd == '[null]' || $cmd == '') {
  echo '';
