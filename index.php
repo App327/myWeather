@@ -36,7 +36,7 @@ if ($link == false) {
  while ($row = mysqli_fetch_array($result)) {
   echo '<option value="'.$row["id"].'">'.$row["name"].'</option>';
  }
- echo '</select> <input type="button" onclick="addCity()" class="material-symbols-outlined btn" value="add"></label><br>
+ echo '</select> <input type="button" onclick="addCity()" class="material-symbols-outlined btn" value="add" data-tooltip="Добавить город" aria-label="Добавить город"></label><br>
 ';
 
  echo '  <label>Месяц: <select name="month"><option value="1">Январь</option><option value="2">Февраль</option><option value="3">Март</option><option value="4">Апрель</option><option value="5">Май</option><option value="6">Июнь</option><option value="7">Июль</option><option value="8">Август</option><option value="9">Сентябрь</option><option value="10">Октябрь</option><option value="11">Ноябрь</option><option value="12">Декабрь</option></select></label><br>
@@ -163,6 +163,9 @@ if ($link == false) {
 echo '
    </tbody>
   </table>
+  
+  <p class="tooltip" style="display: none; top: 0; left: 0;">Подсказка</p>
+  
   <script type="text/javascript">
    document.getElementsByName(\'city\')[0].value = "'.$city.'";
    document.getElementsByName(\'month\')[0].value = "'.$month.'";
