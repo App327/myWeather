@@ -34,3 +34,24 @@ var addRippleEffect = function (e) {
  return false; 
 }
 document.addEventListener('click', addRippleEffect, false);
+
+window.onmouseover = function(event) {
+ let text = event.target.dataset.tooltip;
+ let tooltip = document.getElementsByClassName('tooltip')[0];
+ if (text !== undefined) {
+  tooltip.innerHTML = text;
+  let x = event.clientX;
+  let y = event.clientY;
+  tooltip.style.top = y + 'px';
+  tooltip.style.left = x + 'px';
+  tooltip.style.display = 'block';
+ } else {
+  tooltip.style.display = 'none';
+ }
+ window.onmousemove = function(event) {
+  let x = event.clientX;
+  let y = event.clientY;
+  tooltip.style.top = y + 'px';
+  tooltip.style.left = x + 'px';
+ }
+}
