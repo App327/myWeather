@@ -40,8 +40,8 @@ if ($link == false) {
 ';
 
  echo '  <label>Месяц: <select name="month"><option value="1">Январь</option><option value="2">Февраль</option><option value="3">Март</option><option value="4">Апрель</option><option value="5">Май</option><option value="6">Июнь</option><option value="7">Июль</option><option value="8">Август</option><option value="9">Сентябрь</option><option value="10">Октябрь</option><option value="11">Ноябрь</option><option value="12">Декабрь</option></select></label><br>
-  <label>Год: <select name="year"><option>2023</option></select></label><br>
-  <input type="submit" style="float: right" class="material-symbols-outlined btn" value="check">
+  <label>Год: <select name="year"><option>2023</option><option>2024</option></select></label><br>
+  <input type="submit" style="float: right" class="material-symbols-outlined btn" value="check" data-tooltip="Показать подходящие записи" aria-label="Показать записи по выбранным параметрам">
    </fieldset>
   </form>
   <button onclick="addRecord()">Добавить запись</button> <button onclick="showSymbols()" class="btn_alt">Условные обозначения</button>
