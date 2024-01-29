@@ -215,3 +215,7 @@ fieldset {
  user-select: none;
  white-space: nowrap;
 }
+
+td {
+ text-align: center;
+}
