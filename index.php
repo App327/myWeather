@@ -112,7 +112,7 @@ if ($link == false) {
     </ul>
    </div>
   </div>
-  <table style="margin-top: 20px" align="left" bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
+  <table style="margin-top: 20px" bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
    <thead>
     <tr>
      <th>Дата и время</th>
