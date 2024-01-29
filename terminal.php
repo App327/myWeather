@@ -1,4 +1,5 @@
 <?php
+
 header('HTTP/1.1 200 OK');
 header('Content-Type: text/html');
 
@@ -15,8 +16,8 @@ echo '<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Терминал | Дневник погоды</title>
-  <link rel="stylesheet" href="/static/css/gen.css" media="all">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="stylesheet" href="/static/css/gen.css" media="all" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" media="all" type="text/css">
   <style type="text/css">
    input:not([type="submit"]), textarea {
     font-family: monospace;
@@ -33,7 +34,7 @@ echo '<!DOCTYPE html>
    <input type="text" name="cmd" placeholder="Команда" value="'.$cmd_1.'">
    <input type="submit" class="material-symbols-outlined" value="arrow_right" aria-label="Выполнить введённую команду">
   </form>
-  <textarea placeholder="Результат" readonly cols="40" rows="10">';
+  <textarea placeholder="Результат выполнения" cols="40" rows="10" readonly>';
 
 if ($cmd == '[null]' || $cmd == '') {
  echo '';
