@@ -218,6 +218,10 @@ fieldset {
  white-space: nowrap;
 }
 
+table {
+ overflow-x: auto;
+}
+
 td {
  text-align: center;
 }
