@@ -59,7 +59,6 @@ if ($link == false) {
    <button onclick="closeWindow(\'win-add-record\')" class="material-symbols-outlined win-close">close</button>
    <h2>Добавление записи</h2>
    <form action="/create-record.php" method="get">
-    <label>Когда: <select name="when"><option value="day">Днём</option><option value="night">Ночью</option></select></label><br> <!-- Устарело. Скоро будет удалено. -->
     <label>Облачность: <select name="cloudiness"><option value="0">Ясно</option><option value="1">Малооблачно</option><option value="2">Облачно</option><option value="3">Пасмурно</option></select></label><br>
     <label>Явления: <select name="phenomena"><option value="none">[Нет]</option><option value="rain">Дождь</option><option value="thunderstorm">Гроза</option><option value="snow">Снег</option><option value="frost">Иней</option><option value="hail">Град</option><option value="fog">Туман</option><option value="dew">Роса</option><option value="blizzard">Метель</option></select><br>
     <label>Температура: <input type="number" name="temp" placeholder="Число"> °C</label><br>
@@ -117,7 +116,6 @@ if ($link == false) {
    <thead>
     <tr>
      <th>Дата и время</th>
-     <th>Когда</th>
      <th>Облачность</th>
      <th>Явления</th>
      <th>Температура</th>
@@ -147,13 +145,7 @@ if ($link == false) {
    if ($row["phenomena"] == "none") {
     $row["phenomena"] = "-";
    }
-   if ($row["when"] == "day") {
-   $when = "днём";
-   }
-   if ($row["when"] == "night") {
-    $when = "ночью";
-   }
-   echo '    <tr><td>'.$row["date"].', '.$row["time"].'</td><td>'.$when.'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явление"></td><td>'.$row["temperature"].'°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"> '.$row["wind_speed"].' м/с</td><td>'.$row["pressure"].' мм рт. ст.</tr>';
+   echo '    <tr><td>'.$row["date"].', '.$row["time"].'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явление"></td><td>'.$row["temperature"].'°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"> '.$row["wind_speed"].' м/с</td><td>'.$row["pressure"].' мм рт. ст.</tr>';
   }
  }
 }
