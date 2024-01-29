@@ -21,7 +21,7 @@ if ($link == false) {
  echo '<p>Не удалось подключиться к MySQL.<br><code>'.mysqli_connect_error().'</code></p>';
 } else {
  mysqli_set_charset($link, 'utf8');
- $sql = "INSERT INTO `weather_day`(`date`, `time`, `when`, `cloudiness`, `phenomena`, `temperature`, `wind_speed`, `wind_direction`, `pressure`, `city`, `month`, `year`) VALUES ('".$date."','".$time."','".$when."','".$cldns."','".$phenomena."','".$temp."','".$winds."','".$windd."','".$prs."','".$city."','".$month."','".$year."')";
+ $sql = "INSERT INTO `weather_day`(`date`, `time`, `cloudiness`, `phenomena`, `temperature`, `wind_speed`, `wind_direction`, `pressure`, `city`, `month`, `year`) VALUES ('".$date."','".$time."','".$cldns."','".$phenomena."','".$temp."','".$winds."','".$windd."','".$prs."','".$city."','".$month."','".$year."')";
  $result = mysqli_query($link, $sql);
 
  if ($result == false) {
