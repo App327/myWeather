@@ -203,3 +203,15 @@ fieldset {
  overflow: auto;
  white-space: nowrap;
 }
+
+.tooltip {
+ position: fixed;
+ background: rgba(40, 40, 40, 0.8);
+ color: white;
+ height: 20px;
+ width: auto;
+ padding: 5px;
+ border-radius: 5px;
+ user-select: none;
+ white-space: nowrap;
+}
