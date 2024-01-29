@@ -5,7 +5,7 @@ header('Content-Type: text/html');
 
 $city = isset($_GET["city"])? $_GET["city"]: "1";
 $month = isset($_GET["month"])? $_GET["month"]: getdate()["mon"];
-$year = isset($_GET["year"])? $_GET["year"]: "2023";
+$year = isset($_GET["year"])? $_GET["year"]: "2024";
 
 echo '<!DOCTYPE html>
 <html lang="ru" dir="ltr">
