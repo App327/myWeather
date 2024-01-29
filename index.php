@@ -133,16 +133,15 @@ if ($link == false) {
  if ($result == false) {
   echo '   </tbody>
   </table>
-  <p>ОШИБКА: ';
-  if (mysqli_errno($link) == '1064') {
-   echo 'по Вашему запросу ничего не найдено. <a href="javascript:addRecord()">Создайте</a> новую запись в Дневнике по текущим данным о погоде.</p>
-  <label>Если хотите, можете связаться по поводу ошибки по <a href="mailto:urinatatana57@gmail.com?subject=Сообщение%20об%20ошибке%20в%20«Дневнике%20погоды»&body=Здравствуйте!%0A%0AУ меня возникла проблема при работе с «Дневником погоды». Вот сведения об ошибке:%0A%0A[вставьте сюда сведения об ошибке]">эл. почте</a>. В письме предоставьте следующие данные:<br><textarea cols="50" rows="10" readonly="">
-Тип ошибки: Ошибка MySQL
----
-Код ошибки: '.mysqli_errno($link).'
----
-Ответ MySQL: '.mysqli_error($link).'</textarea>';
-  }
+  <p>Произошла ошибка.</p>
+  <p>Попробуйте следующее:</p>
+  <ul>
+   <li><b>обновить «Дневник погоды»:</b> <a href="https://github.com/App327/myWeather">скачайте</a> последнюю версию с GitHub;</li>
+   <li><b>повторить попытку:</b> <a href="javascript:window.location.reload()">нажмите здесь</a>;</li>
+   <li><b>очистить БД:</b> <a href="/terminal.php?cmd=--clear">нажмите здесь</a>;</li>
+   <li><b>пересоздать таблицы в БД:</b> <a href="/terminal.php?cmd=--uninstall">нажмите здесь</a>, а потом <a href="/terminal.php?cmd=--install">здесь</a>;</li>
+   <li><b>сообщить о проблеме на GitHub:</b> <a href="https://github.com/App327/myWeather/issues/new/?title=Сообщение+об+ошибке+[#94742]">нажмите здесь</a>.</li>
+  </ul>';
  } else {
   while ($row = mysqli_fetch_array($result)) {
    if ($row["phenomena"] == "none") {
@@ -154,7 +153,7 @@ if ($link == false) {
    if ($row["when"] == "night") {
     $when = "ночью";
    }
-   echo '    <tr><td>'.$row["date"].', '.$row["time"].'</td><td>'.$when.'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явления"></td><td>'.$row["temperature"].'°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"> '.$row["wind_speed"].' м/с</td><td>'.$row["pressure"].' мм рт. ст.</tr>';
+   echo '    <tr><td>'.$row["date"].', '.$row["time"].'</td><td>'.$when.'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явление"></td><td>'.$row["temperature"].'°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"> '.$row["wind_speed"].' м/с</td><td>'.$row["pressure"].' мм рт. ст.</tr>';
   }
  }
 }
