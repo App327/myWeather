@@ -53,6 +53,7 @@ if ($link == false) {
     <label>Название: <input type="text" style="width: 90%" name="nm" placeholder="Название города"></label>
     <p style="color: grey;">Название используется как ярлык, поэтому Вы можете указать любое название, главное — чтобы Вы понимали, какой город Вы имеете в виду.</p>
     <input type="button" class="btn_alt win-action1 material-symbols-outlined" value="close" onclick="closeWindow(\'win-add-city\')">
+    <button class="win-action2 material-symbols-outlined">check</button>
    </form>
   </div>
   <div class="window" id="win-add-record" style="display: none">
@@ -110,7 +111,6 @@ if ($link == false) {
      <li><b>мм рт. ст.</b> — миллиметры ртутного столба</li>
     </ul>
    </div>
-   <button class="win-action1" style="width: 100%" onclick="closeWindow(\'win-symbols\')">Закрыть</button>
   </div>
   <table style="margin-top: 20px" align="left" bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
    <thead>
