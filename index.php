@@ -17,7 +17,7 @@ echo '<!DOCTYPE html>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" media="all" type="text/css">
  </head>
  <body>
-  <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt=""> В этом браузере отключён JavaScript</div></noscript>
+  <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
   <h1>Дневник погоды</h1>
   <form action="/" method="get">
    <fieldset>
