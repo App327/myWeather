@@ -1,4 +1,5 @@
 <?php
+
 header('HTTP/1.1 200 OK');
 header('Content-Type: text/html');
 
@@ -12,8 +13,8 @@ echo '<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Дневник погоды</title>
-  <link rel="stylesheet" href="/static/css/gen.css" media="all">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+  <link rel="stylesheet" href="/static/css/gen.css" media="all" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" media="all" type="text/css">
  </head>
  <body>
   <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt=""> В этом браузере отключён JavaScript</div></noscript>
@@ -58,7 +59,7 @@ if ($link == false) {
    <button onclick="closeWindow(\'win-add-record\')" class="material-symbols-outlined win-close">close</button>
    <h2>Добавление записи</h2>
    <form action="/create-record.php" method="get">
-    <label>Когда: <select name="when"><option value="day">Днём</option><option value="night">Ночью</option></select></label><br>
+    <label>Когда: <select name="when"><option value="day">Днём</option><option value="night">Ночью</option></select></label><br> <!-- Устарело. Скоро будет удалено. -->
     <label>Облачность: <select name="cloudiness"><option value="0">Ясно</option><option value="1">Малооблачно</option><option value="2">Облачно</option><option value="3">Пасмурно</option></select></label><br>
     <label>Явления: <select name="phenomena"><option value="none">[Нет]</option><option value="rain">Дождь</option><option value="thunderstorm">Гроза</option><option value="snow">Снег</option><option value="frost">Иней</option><option value="hail">Град</option><option value="fog">Туман</option><option value="dew">Роса</option><option value="blizzard">Метель</option></select><br>
     <label>Температура: <input type="number" name="temp" placeholder="Число"> °C</label><br>
@@ -162,7 +163,7 @@ if ($link == false) {
 echo '
    </tbody>
   </table>
-  <script>
+  <script type="text/javascript">
    document.getElementsByName(\'city\')[0].value = "'.$city.'";
    document.getElementsByName(\'month\')[0].value = "'.$month.'";
    document.getElementsByName(\'year\')[0].value = "'.$year.'";
