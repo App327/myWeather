@@ -145,7 +145,7 @@ if ($link == false) {
    if ($row["phenomena"] == "none") {
     $row["phenomena"] = "-";
    }
-   echo '    <tr><td>'.date("d/m/Y", strtotime($row["date"])).', '.$row["time"].'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явление"></td><td>'.$row["temperature"].'°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"><br>'.$row["wind_speed"].' м/с</td><td>'.$row["pressure"].' мм рт. ст.</tr>';
+   echo '    <tr><td>'.date("d/m/Y", strtotime($row["date"])).',<br>'.$row["time"].'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явление"></td><td><b>'.$row["temperature"].'</b>°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"><br><b>'.$row["wind_speed"].'</b> м/с</td><td><b>'.$row["pressure"].'</b><br>мм рт. ст.</tr>';
   }
  }
 }
