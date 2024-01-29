@@ -104,7 +104,7 @@ if ($link == false) {
      <li><img src="/static/img/w/wd/e.svg" alt="Восточный"> — Восточный</li>
      <li><img src="/static/img/w/wd/se.svg" alt="Юго-восточный"> — Юго-восточный</li>
     </ul>
-    <h2>Сокращения</h2>
+    <h3>Сокращения</h3>
     <ul>
      <li><b>°C</b> — градусы Цельсия</li>
      <li><b>м/с</b> — метры в секунду</li>
