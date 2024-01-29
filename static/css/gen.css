@@ -127,12 +127,13 @@ fieldset {
  height: 90%;
  top: 5%;
  left: 5%;
+ overflow-y: auto;
  animation: showWin 450ms forwards;
 }
 
 @keyframes showWin {
- from { transform: scale(110%, 110%); }
- to { transform: scale(90%, 90%); }
+ from { transform: scale(90%, 90%); }
+ to { transform: scale(110%, 110%); }
 }
 
 .win-close {
