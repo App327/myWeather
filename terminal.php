@@ -70,7 +70,7 @@ if (!$link) {
 ----------------
 Создание таблицы «weather_day»... ';
 }
-$sql = 'CREATE TABLE `myWeather`.`weather_day` (`date` DATE NOT NULL , `time` TIME NOT NULL , `when` TEXT NOT NULL , `cloudiness` INT NOT NULL , `phenomena` TEXT NOT NULL , `temperature` INT NOT NULL , `wind_speed` INT NOT NULL , `wind_direction` TEXT NOT NULL , `pressure` INT NOT NULL , `city` INT NOT NULL , `month` INT NOT NULL , `year` INT NOT NULL ) ENGINE = MyISAM';
+$sql = 'CREATE TABLE `myWeather`.`weather_day` (`date` DATE NOT NULL , `time` TIME NOT NULL , `cloudiness` INT NOT NULL , `phenomena` TEXT NOT NULL , `temperature` INT NOT NULL , `wind_speed` INT NOT NULL , `wind_direction` TEXT NOT NULL , `pressure` INT NOT NULL , `city` INT NOT NULL , `month` INT NOT NULL , `year` INT NOT NULL ) ENGINE = MyISAM';
 $result = mysqli_query($link, $sql);
 if (!$link) {
  echo 'Ошибка
