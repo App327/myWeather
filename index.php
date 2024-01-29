@@ -51,6 +51,7 @@ if ($link == false) {
    <h2>Добавление города</h2>
    <form action="/create-city.php" method="get">
     <label>Название: <input type="text" style="width: 90%" name="nm" placeholder="Название города"></label>
+    <p style="color: grey;">Название используется как ярлык, поэтому Вы можете указать любое назваеие, главное — чтобы Вы понимали, какой город Вы имеете в виду.</p>
     <input type="button" class="btn_alt win-action1 material-symbols-outlined" value="close" onclick="closeWindow(\'win-add-city\')">
     <button class="win-action2 material-symbols-outlined">check</button>
    </form>
