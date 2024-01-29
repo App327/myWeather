@@ -33,7 +33,7 @@ echo '<!DOCTYPE html>
   <form action="/terminal.php" method="get">
    <input type="text" name="cmd" placeholder="Команда" value="'.$cmd_1.'">
    <input type="submit" class="material-symbols-outlined" value="arrow_right" aria-label="Выполнить введённую команду">
-  </form>
+  </form><br>
   <textarea placeholder="Результат выполнения" cols="40" rows="10" readonly>';
 
 if ($cmd == '[null]' || $cmd == '') {
