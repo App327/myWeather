@@ -158,14 +158,14 @@ fieldset {
 }
 
 .win-action1 {
- position: fixed;
+ position: absolute;
  bottom: 0;
  left: 0;
  width: 50%;
 }
 
 .win-action2 {
- position: fixed;
+ position: absolute;
  bottom: 0;
  right: 0;
  width: 50%;
