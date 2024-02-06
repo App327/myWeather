@@ -18,7 +18,7 @@ echo '<!DOCTYPE html>
  </head>
  <body>
   <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
-  <h1>Дневник погоды</h1>
+  <h1>Дневник погоды <button class="btn_alt material-symbols-outlined" data-tooltip="Ещё" aria-label="Ещё" onclick="showMoreOpt()">more_vert</button></h1>
   <form action="/" method="get">
    <fieldset>
     <legend>Параметры</legend>
