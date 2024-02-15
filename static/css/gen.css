@@ -254,3 +254,14 @@ td {
  from { top: 75px; opacity: 1; }
  to { top: 0; opacity: 0; }
 }
+
+.moreopt button {
+ width: 100%;
+ background: white;
+ color: black;
+ border-radius: 10px;
+ border: none;
+}
+.moreopt button:hover {
+ background: rgba(100, 100, 100, 0.1);
+ }
