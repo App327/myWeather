@@ -55,3 +55,10 @@ window.onmouseover = function(event) {
   tooltip.style.left = x + 'px';
  }
 }
+
+let moreopt = document.getElementsByClassName('moreopt')[0];
+
+function showMoreOpt() {
+ moreopt.style.display = 'block';
+ moreopt.classList.add('show');
+}
