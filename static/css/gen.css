@@ -225,3 +225,24 @@ table {
 td {
  text-align: center;
 }
+
+.moreopt {
+ background: white;
+ min-width: 50px;
+ min-height: 50px;
+ border-radius: 10px;
+ box-shadow: 0 0 7px grey;
+ position: fixed;
+ top: 5px;
+ right: 10px;
+ opacity: 0;
+ transition-property: top, opacity;
+ transition-duration: 500ms;
+}
+
+.moreopt.show {
+ top: 25px;
+ opacity: 1;
+ transition-property: top, opacity;
+ transition-duration: 500ms;
+}
