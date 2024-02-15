@@ -21,6 +21,9 @@ echo '<!DOCTYPE html>
   <h1>Дневник погоды <button class="btn_alt material-symbols-outlined" data-tooltip="Ещё" aria-label="Ещё" onclick="showMoreOpt()" id="moreopt-btn">more_vert</button></h1>
   <div class="moreopt" style="display: none;">
    <button onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined">terminal</span> Терминал</button>
+   <button onclick="showBugReport()"><span class="material-symbols-outlined">bug_report</span> Сообщить об ошибке</button>
+   <button onclick="aboutService()"><span class="material-symbols-outlined">info</span> О сервисе</button>
+   <button onclick="showVersion()"><span class="material-symbols-outlined">info</span> Версия</button>
   </div>
   <form action="/" method="get">
    <fieldset>
