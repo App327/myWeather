@@ -20,7 +20,7 @@ echo '<!DOCTYPE html>
   <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
   <h1>Дневник погоды <button class="btn_alt material-symbols-outlined" data-tooltip="Ещё" aria-label="Ещё" onclick="showMoreOpt()">more_vert</button></h1>
   <div class="moreopt" style="display: none;">
-   <button onclick="window.location.href = '/terminal.php'"><span class="material-symbols-outlined">terminal</span> Терминал</button>
+   <button onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined">terminal</span> Терминал</button>
   </div>
   <form action="/" method="get">
    <fieldset>
