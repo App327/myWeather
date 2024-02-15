@@ -14,7 +14,7 @@ echo '<!DOCTYPE html>
   <meta name="viewport" content="width=device-width">
   <title>Дневник погоды</title>
   <link rel="stylesheet" href="/static/css/gen.css" media="all" type="text/css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" media="all" type="text/css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" media="all" type="text/css">
  </head>
  <body>
   <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
