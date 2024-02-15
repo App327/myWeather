@@ -257,6 +257,7 @@ td {
 
 .moreopt button {
  width: 100%;
+ height: 50px;
  background: white;
  color: black;
  border-radius: 10px;
