@@ -74,7 +74,7 @@ button {
  background: dodgerblue;
  color: white;
  height: 50px;
- win-width: 50px;
+ min-width: 50px;
  border-radius: 5px;
  user-select: none;
  font-family: inherit;
@@ -227,22 +227,30 @@ td {
 }
 
 .moreopt {
- background: white;
- min-width: 50px;
- min-height: 50px;
+ min-height: 100px;
+ min-width: 50%;
  border-radius: 10px;
+ background: white;
  box-shadow: 0 0 7px grey;
  position: fixed;
- top: 5px;
+ top: 0;
  right: 10px;
  opacity: 0;
- transition-property: top, opacity;
- transition-duration: 500ms;
+ animation: closeMoreOpt 350ms forwards;
 }
 
 .moreopt.show {
- top: 25px;
+ top: 75px;
  opacity: 1;
- transition-property: top, opacity;
- transition-duration: 500ms;
+ animation: showMoreOpt 350ms forwards;
+}
+
+@keyframes showMoreOpt {
+ from { top: 0; opacity: 0; }
+ to { top: 75px; opacity: 1; }
+}
+
+@keyframes closeMoreOpt {
+ from { top: 75px; opacity: 1; }
+ to { top: 0; opacity: 0; }
 }
