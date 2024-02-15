@@ -57,8 +57,16 @@ window.onmouseover = function(event) {
 }
 
 let moreopt = document.getElementsByClassName('moreopt')[0];
+let moreopt_btn = document.getElementById('moreopt-btn');
 
 function showMoreOpt() {
  moreopt.style.display = 'block';
  moreopt.classList.add('show');
+ moreopt_btn.onclick = closeMoreOpt;
+}
+
+function closeMoreOpt() {
+ moreopt.classList.remove('show');
+ setTimeout(() => moreopt.style.display = 'none', 500);
+ moreopt_btn.onclick = showMoreOpt;
 }
