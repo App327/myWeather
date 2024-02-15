@@ -262,7 +262,8 @@ td {
  color: black;
  border-radius: 10px;
  border: none;
+ text-align: left;
 }
 .moreopt button:hover {
  background: rgba(100, 100, 100, 0.1);
- }
+}
