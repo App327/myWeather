@@ -6,6 +6,10 @@ function addRecord() {
  document.getElementById('win-add-record').style.display = 'block';
 }
 
+function showAbout() {
+ document.getElementById('win-about').style.display = 'block';
+}
+
 function showSymbols() {
  document.getElementById('win-symbols').style.display = 'block';
 }
