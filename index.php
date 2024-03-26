@@ -22,7 +22,7 @@ echo '<!DOCTYPE html>
   <div class="moreopt" style="display: none;">
    <button onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined">terminal</span> Терминал</button>
    <button onclick="window.location.href = \'https://github.com/App327/myWeather/issues/new\'"><span class="material-symbols-outlined">bug_report</span> Сообщить об ошибке</button>
-   <button onclick="aboutService()"><span class="material-symbols-outlined">info</span> О сервисе</button>
+   <button onclick="showAbout()"><span class="material-symbols-outlined">info</span> О сервисе</button>
    <button onclick="showVersion()"><span class="material-symbols-outlined">info</span> Версия</button>
   </div>
   <form action="/" method="get">
@@ -118,6 +118,12 @@ if ($link == false) {
     </ul>
    </div>
   </div>
+  <div class="window" id="win-about" style="display: none">
+   <button onclick="closeWindow(\'win-about\')" class="material-symbols-outlined win-close">close</button>
+   <h2>О сервисе</h2>
+   <p><b>Дневник погоды</b> — сервис, позволяющий Вам делать отметки о погоде в разных городах и в разное время, не расходуя при этом бумагу. Кроме того, Вам также не придётся перебирать огромное количество записей, так как в «Дневнике погоды» есть параметры вверху страницы (фильтры), которые помогают в поиске записей. Сервис поможет следить за изменениями погоды и построить предпологаемый прогноз погоды.</p>
+   <p>Сервис постоянно улучшается и обновляется, в нём появляются новые функции и возможности.</p>
+  </div>
   <table style="margin-top: 20px" bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
    <thead>
     <tr>
@@ -171,4 +177,5 @@ echo '
   <script src="/static/js/gen.js"></script>
  </body>
 </html>';
+
 ?>
