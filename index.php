@@ -124,6 +124,15 @@ if ($link == false) {
    <p><b>Дневник погоды</b> — сервис, позволяющий Вам делать отметки о погоде в разных городах и в разное время, не расходуя при этом бумагу. Кроме того, Вам также не придётся перебирать огромное количество записей, так как в «Дневнике погоды» есть параметры вверху страницы (фильтры), которые помогают в поиске записей. Сервис поможет следить за изменениями погоды и построить предпологаемый прогноз погоды.</p>
    <p>Сервис постоянно улучшается и обновляется, в нём появляются новые функции и возможности.</p>
   </div>
+  <div class="window" id="win-version" style="display: none">
+   <button onclick="closeWindow(\'win-version\')" class="material-symbols-outlined win-close">close</button>
+   <h2>Версия</h2>
+   <p><b>Версия:</b> 2.0</p>
+   <p>Дата выпуска:</b> 26/03/2024</p>
+   <hr noshade color="silver">
+   <p>© App327, 2024</p>
+   <button class="win-action2" onclick="window.location.href = \'https://github.com/App327/myWeather\'">Проверить обновления (GitHub)</button>
+  </div>
   <table style="margin-top: 20px" bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
    <thead>
     <tr>
