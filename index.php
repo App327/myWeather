@@ -128,7 +128,7 @@ if ($link == false) {
    <button onclick="closeWindow(\'win-version\')" class="material-symbols-outlined win-close">close</button>
    <h2>Версия</h2>
    <p><b>Версия:</b> 2.0</p>
-   <p>Дата выпуска:</b> 26/03/2024</p>
+   <p><b>Дата выпуска:</b> 26/03/2024</p>
    <hr noshade color="silver">
    <p>© App327, 2024</p>
    <button class="win-action2" onclick="window.location.href = \'https://github.com/App327/myWeather\'">Проверить обновления (GitHub)</button>
