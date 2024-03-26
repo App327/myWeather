@@ -10,6 +10,10 @@ function showAbout() {
  document.getElementById('win-about').style.display = 'block';
 }
 
+function showVersion() {
+ document.getElementById('win-version').style.display = 'block';
+}
+
 function showSymbols() {
  document.getElementById('win-symbols').style.display = 'block';
 }
