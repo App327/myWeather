@@ -11,18 +11,26 @@ echo '<!DOCTYPE html>
 <html lang="ru" dir="ltr">
  <head>
   <meta charset="utf-8">
-  <title>Дневник погоды</title>
+  <title>Главная | Дневник погоды</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/static/css/gen.css" media="all" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" media="all" type="text/css">
  </head>
  <body>
-  <h1>Дневник погоды <button class="btn_alt material-symbols-outlined" data-tooltip="Ещё" aria-label="Ещё" onclick="showMoreOpt()" id="moreopt-btn" style="float: right;">more_vert</button></h1>
+  <header>
+   <!-- Меню скоро станет доступно. -->
+   <button class="ui-action-1 material-symbols-outlined" data-tooltip="Меню" aria-label="Меню" onclick="showMenu()" id="menu-btn">menu</button></h1>
+   <h2>Дневник погоды</h2>
+   <button class="ui-action-1 material-symbols-outlined" data-tooltip="Ещё" aria-label="Ещё" onclick="showMoreOpt()" id="moreopt-btn">more_vert</button></h1>
+  </header>
+
+  <div style="height: 80px;"></div>
+
   <div class="moreopt" style="display: none;">
-   <button onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined">terminal</span> Терминал</button>
-   <button onclick="window.location.href = \'https://github.com/App327/myWeather/issues/new\'"><span class="material-symbols-outlined">bug_report</span> Сообщить об ошибке</button>
-   <button onclick="showAbout()"><span class="material-symbols-outlined">info</span> О сервисе</button>
-   <button onclick="showVersion()"><span class="material-symbols-outlined">info</span> Версия</button>
+   <button onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined icon">terminal</span> <span class="text">Терминал</span></button>
+   <button onclick="window.location.href = \'https://github.com/App327/myWeather/issues/new\'"><span class="material-symbols-outlined icon">bug_report</span> Сообщить об ошибке</span></button>
+   <button onclick="showAbout()"><span class="material-symbols-outlined icon">info</span> <span class="text">О сервисе</span></button>
+   <button onclick="showVersion()"><span class="material-symbols-outlined icon">info</span> <span class="text">Версия</span></button>
   </div>
   <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
   <form action="/" method="get">
@@ -52,8 +60,56 @@ if ($link == false) {
    </fieldset>
   </form>
   <button onclick="addRecord()">Добавить запись</button> <button onclick="showSymbols()" class="btn_alt">Условные обозначения</button>
+  <br /><br />
 ';
- echo '  <div class="window" id="win-add-city" style="display: none">
+ echo '  <div style="width: 100%; overflow-x: auto">
+   <table bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
+    <thead>
+     <tr>
+      <th>Дата и время</th>
+      <th>Облачность</th>
+      <th>Явления</th>
+      <th>Температура</th>
+      <th>Ветер</th>
+      <th>Давление</th>
+     </tr>
+    </thead>
+    <tbody>
+';
+
+ $sql = "SELECT * FROM `weather_day` WHERE `city` = \"".$city."\" AND `month` = \"".$month."\" AND `year` = \"".$year."\";";
+ $result = mysqli_query($link, $sql);
+ if ($result == false) {
+  echo '    </tbody>
+   </table>
+  </div>
+  <p>Произошла ошибка.</p>
+  <p>Попробуйте следующее:</p>
+  <ul>
+   <li><b>обновить «Дневник погоды»:</b> <a href="https://github.com/App327/myWeather">скачайте</a> последнюю версию с GitHub;</li>
+   <li><b>повторить попытку:</b> <a href="javascript:window.location.reload()">нажмите здесь</a>;</li>
+   <li><b>очистить БД:</b> <a href="/terminal.php?cmd=--clear">нажмите здесь</a>;</li>
+   <li><b>пересоздать таблицы в БД:</b> <a href="/terminal.php?cmd=--uninstall">нажмите здесь</a>, а потом <a href="/terminal.php?cmd=--install">здесь</a>;</li>
+   <li><b>сообщить о проблеме на GitHub:</b> <a href="https://github.com/App327/myWeather/issues/new/?title=Сообщение+об+ошибке+[#94742]">нажмите здесь</a>.</li>
+  </ul>';
+ } else {
+  while ($row = mysqli_fetch_array($result)) {
+   if ($row["phenomena"] == "none") {
+    $row["phenomena"] = "-";
+   }
+   echo '    <tr><td>'.date("d/m/Y", strtotime($row["date"])).',<br>'.$row["time"].'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явление"></td><td><b>'.$row["temperature"].'</b>°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"><br><b>'.$row["wind_speed"].'</b> м/с</td><td><b>'.$row["pressure"].'</b><br>мм рт. ст.</tr>';
+  }
+ }
+}
+
+
+echo '
+    </tbody>
+   </table>
+  </div>
+
+  <div class="win-bkg" style="display: none;"></div>
+  <div class="window" id="win-add-city" style="display: none">
    <button onclick="closeWindow(\'win-add-city\')" class="material-symbols-outlined win-close">close</button>
    <h2>Добавление города</h2>
    <form action="/create-city.php" method="get">
@@ -122,71 +178,26 @@ if ($link == false) {
   <div class="window" id="win-about" style="display: none">
    <button onclick="closeWindow(\'win-about\')" class="material-symbols-outlined win-close">close</button>
    <h2>О сервисе</h2>
-   <p><b>Дневник погоды</b> — сервис, позволяющий Вам делать отметки о погоде в разных городах и в разное время, не расходуя при этом бумагу. Кроме того, Вам также не придётся перебирать огромное количество записей, так как в «Дневнике погоды» есть параметры вверху страницы (фильтры), которые помогают в поиске записей. Сервис поможет следить за изменениями погоды и построить предпологаемый прогноз погоды.</p>
-   <p>Сервис постоянно улучшается и обновляется, в нём появляются новые функции и возможности.</p>
+   <p><b>Дневник погоды</b> — сервис, помогающий Вам вести наблюдения за погодой в разных городах и в разное время и быстро сохранять результаты наблюдений в одном месте, не расходуя при этом бумагу и чернила. Кроме того, Вам также не придётся перебирать огромное количество записей, так как в «Дневнике погоды» есть параметры вверху страницы (фильтры), которые помогают в поиске записей. Сервис поможет следить за изменениями погоды и построить предпологаемый прогноз погоды.</p>
+   <p>Сервис постоянно улучшается и обновляется, в нём появляются новые функции и возможности. Чтобы проверить наличие обновлений, откройте окно «Версия», а в нём нажмите «Проверить обновления (GitHub)».</p>
   </div>
   <div class="window" id="win-version" style="display: none">
    <button onclick="closeWindow(\'win-version\')" class="material-symbols-outlined win-close">close</button>
    <h2>Версия</h2>
-   <p><b>Версия:</b> 2.1</p>
+   <p><b>Версия:</b> 3.0-alpha1</p>
    <p><b>Дата выпуска:</b> 20/03/2025</p>
    <hr noshade color="silver">
    <p>Лицензия MIT / MIT License</p>
    <p>© App327, 2023–2025</p>
    <button class="win-action2" onclick="window.location.href = \'https://github.com/App327/myWeather\'">Проверить обновления (GitHub)</button>
-  </div><br /><br />
-  <div style="width: 100%; overflow-x: auto">
-   <table bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
-    <thead>
-     <tr>
-      <th>Дата и время</th>
-      <th>Облачность</th>
-      <th>Явления</th>
-      <th>Температура</th>
-      <th>Ветер</th>
-      <th>Давление</th>
-     </tr>
-    </thead>
-    <tbody>
-';
-
- $sql = "SELECT * FROM `weather_day` WHERE `city` = \"".$city."\" AND `month` = \"".$month."\" AND `year` = \"".$year."\";";
- $result = mysqli_query($link, $sql);
- if ($result == false) {
-  echo '    </tbody>
-   </table>
   </div>
-  <p>Произошла ошибка.</p>
-  <p>Попробуйте следующее:</p>
-  <ul>
-   <li><b>обновить «Дневник погоды»:</b> <a href="https://github.com/App327/myWeather">скачайте</a> последнюю версию с GitHub;</li>
-   <li><b>повторить попытку:</b> <a href="javascript:window.location.reload()">нажмите здесь</a>;</li>
-   <li><b>очистить БД:</b> <a href="/terminal.php?cmd=--clear">нажмите здесь</a>;</li>
-   <li><b>пересоздать таблицы в БД:</b> <a href="/terminal.php?cmd=--uninstall">нажмите здесь</a>, а потом <a href="/terminal.php?cmd=--install">здесь</a>;</li>
-   <li><b>сообщить о проблеме на GitHub:</b> <a href="https://github.com/App327/myWeather/issues/new/?title=Сообщение+об+ошибке+[#94742]">нажмите здесь</a>.</li>
-  </ul>';
- } else {
-  while ($row = mysqli_fetch_array($result)) {
-   if ($row["phenomena"] == "none") {
-    $row["phenomena"] = "-";
-   }
-   echo '    <tr><td>'.date("d/m/Y", strtotime($row["date"])).',<br>'.$row["time"].'</td><td><img src="/static/img/w/c/'.$row["cloudiness"].'.svg" alt="Облачность" height="20px"></td><td><img src="/static/img/w/p/'.$row["phenomena"].'.svg" height="20px" alt="Погодное явление"></td><td><b>'.$row["temperature"].'</b>°C</td><td><img src="/static/img/w/wd/'.$row["wind_direction"].'.svg" height="20px" alt="Направление ветра"><br><b>'.$row["wind_speed"].'</b> м/с</td><td><b>'.$row["pressure"].'</b><br>мм рт. ст.</tr>';
-  }
- }
-}
 
-
-echo '
-    </tbody>
-   </table>
-  </div>
-  
   <p class="tooltip" style="display: none; top: 0; left: 0;">Подсказка</p>
-  
+
   <script type="text/javascript">
-   document.getElementsByName(\'city\')[0].value = "'.$city.'";
-   document.getElementsByName(\'month\')[0].value = "'.$month.'";
-   document.getElementsByName(\'year\')[0].value = "'.$year.'";
+   document.getElementsByName(\'city\')[0].value = \''.$city.'\';
+   document.getElementsByName(\'month\')[0].value = \''.$month.'\';
+   document.getElementsByName(\'year\')[0].value = \''.$year.'\';
   </script>
   <script src="/static/js/gen.js"></script>
  </body>
