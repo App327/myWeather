@@ -5,19 +5,18 @@ header('Content-Type: text/html');
 
 $city = isset($_GET["city"])? $_GET["city"]: "1";
 $month = isset($_GET["month"])? $_GET["month"]: getdate()["mon"];
-$year = isset($_GET["year"])? $_GET["year"]: "2024";
+$year = isset($_GET["year"])? $_GET["year"]: "2025";
 
 echo '<!DOCTYPE html>
 <html lang="ru" dir="ltr">
  <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
   <title>Дневник погоды</title>
+  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="/static/css/gen.css" media="all" type="text/css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" media="all" type="text/css">
  </head>
  <body>
-  <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
   <h1>Дневник погоды <button class="btn_alt material-symbols-outlined" data-tooltip="Ещё" aria-label="Ещё" onclick="showMoreOpt()" id="moreopt-btn" style="float: right;">more_vert</button></h1>
   <div class="moreopt" style="display: none;">
    <button onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined">terminal</span> Терминал</button>
@@ -25,6 +24,7 @@ echo '<!DOCTYPE html>
    <button onclick="showAbout()"><span class="material-symbols-outlined">info</span> О сервисе</button>
    <button onclick="showVersion()"><span class="material-symbols-outlined">info</span> Версия</button>
   </div>
+  <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
   <form action="/" method="get">
    <fieldset>
     <legend>Параметры</legend>
@@ -42,12 +42,13 @@ if ($link == false) {
  while ($row = mysqli_fetch_array($result)) {
   echo '<option value="'.$row["id"].'">'.$row["name"].'</option>';
  }
- echo '</select> <input type="button" onclick="addCity()" class="material-symbols-outlined btn" value="add" data-tooltip="Добавить город" aria-label="Добавить город"></label><br>
+ echo '</select>
+ <input type="button" onclick="addCity()" class="material-symbols-outlined btn" value="add" data-tooltip="Добавить город" aria-label="Добавить город"></label><br>
 ';
 
- echo '  <label>Месяц: <select name="month"><option value="1">Январь</option><option value="2">Февраль</option><option value="3">Март</option><option value="4">Апрель</option><option value="5">Май</option><option value="6">Июнь</option><option value="7">Июль</option><option value="8">Август</option><option value="9">Сентябрь</option><option value="10">Октябрь</option><option value="11">Ноябрь</option><option value="12">Декабрь</option></select></label><br>
-  <label>Год: <select name="year"><option>2023</option><option>2024</option></select></label><br>
-  <input type="submit" style="float: right" class="material-symbols-outlined btn" value="check" data-tooltip="Показать подходящие записи" aria-label="Показать записи по выбранным параметрам">
+ echo '    <label>Месяц: <select name="month"><option value="1">Январь</option><option value="2">Февраль</option><option value="3">Март</option><option value="4">Апрель</option><option value="5">Май</option><option value="6">Июнь</option><option value="7">Июль</option><option value="8">Август</option><option value="9">Сентябрь</option><option value="10">Октябрь</option><option value="11">Ноябрь</option><option value="12">Декабрь</option></select></label><br>
+    <label>Год: <select name="year"><option>2023</option><option>2024</option><option>2025</option></select></label><br>
+    <input type="submit" style="float: right" class="material-symbols-outlined btn" value="check" data-tooltip="Применить фильтры" aria-label="Применить фильтры и показать подходящие записи">
    </fieldset>
   </form>
   <button onclick="addRecord()">Добавить запись</button> <button onclick="showSymbols()" class="btn_alt">Условные обозначения</button>
@@ -69,7 +70,7 @@ if ($link == false) {
     <label>Облачность: <select name="cloudiness"><option value="0">Ясно</option><option value="1">Малооблачно</option><option value="2">Облачно</option><option value="3">Пасмурно</option></select></label><br>
     <label>Явления: <select name="phenomena"><option value="none">[Нет]</option><option value="rain">Дождь</option><option value="thunderstorm">Гроза</option><option value="snow">Снег</option><option value="frost">Иней</option><option value="hail">Град</option><option value="fog">Туман</option><option value="dew">Роса</option><option value="blizzard">Метель</option></select><br>
     <label>Температура: <input type="number" name="temp" placeholder="Число"> °C</label><br>
-    <label>Ветер: <select name="windd"><option value="n">⬇️ С</option><option value="s">⬆️ Ю</option><option value="e">➡️ В</option><option value="w">⬅️ З</option><option value="nw">↙️ СЗ</option><option value="sw">↖️ ЮЗ</option><option value="ne">↘️ СВ</option><option value="se">↗️ ЮВ</option></select>, <input type="number" placeholder="Скорость" name="winds"> м/с</label><br>
+    <label>Ветер: <select name="windd"><option value="n">⬇️ С</option><option value="s">⬆️ Ю</option><option value="e">⬅️ В</option><option value="w">➡️ З</option><option value="nw">↘️ СЗ</option><option value="sw">↗️ ЮЗ</option><option value="ne">↙️ СВ</option><option value="se">↖️ ЮВ</option></select>, <input type="number" placeholder="Скорость" name="winds"> м/с</label><br>
     <label>Давление: <input type="number" name="pressure" placeholder="Число"> мм рт. ст.</label><br>
     <input type="hidden" value="'.$city.'" name="city">
     <input type="button" class="btn_alt win-action1 material-symbols-outlined" value="close" onclick="closeWindow(\'win-add-record\')">
@@ -127,31 +128,34 @@ if ($link == false) {
   <div class="window" id="win-version" style="display: none">
    <button onclick="closeWindow(\'win-version\')" class="material-symbols-outlined win-close">close</button>
    <h2>Версия</h2>
-   <p><b>Версия:</b> 2.0</p>
-   <p><b>Дата выпуска:</b> 26/03/2024</p>
+   <p><b>Версия:</b> 2.1</p>
+   <p><b>Дата выпуска:</b> 20/03/2025</p>
    <hr noshade color="silver">
-   <p>© App327, 2024</p>
+   <p>Лицензия MIT / MIT License</p>
+   <p>© App327, 2023–2025</p>
    <button class="win-action2" onclick="window.location.href = \'https://github.com/App327/myWeather\'">Проверить обновления (GitHub)</button>
-  </div>
-  <table style="margin-top: 20px" bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
-   <thead>
-    <tr>
-     <th>Дата и время</th>
-     <th>Облачность</th>
-     <th>Явления</th>
-     <th>Температура</th>
-     <th>Ветер</th>
-     <th>Давление</th>
-    </tr>
-   </thead>
-   <tbody>
+  </div><br /><br />
+  <div style="width: 100%; overflow-x: auto">
+   <table bgcolor="#fff" border="3" bordercolor="dodgerblue" cellpadding="5px" cellspacing="0" cols="12" frame="border" rules="all" summary="Таблица — дневник погоды">
+    <thead>
+     <tr>
+      <th>Дата и время</th>
+      <th>Облачность</th>
+      <th>Явления</th>
+      <th>Температура</th>
+      <th>Ветер</th>
+      <th>Давление</th>
+     </tr>
+    </thead>
+    <tbody>
 ';
 
  $sql = "SELECT * FROM `weather_day` WHERE `city` = \"".$city."\" AND `month` = \"".$month."\" AND `year` = \"".$year."\";";
  $result = mysqli_query($link, $sql);
  if ($result == false) {
-  echo '   </tbody>
-  </table>
+  echo '    </tbody>
+   </table>
+  </div>
   <p>Произошла ошибка.</p>
   <p>Попробуйте следующее:</p>
   <ul>
@@ -173,8 +177,9 @@ if ($link == false) {
 
 
 echo '
-   </tbody>
-  </table>
+    </tbody>
+   </table>
+  </div>
   
   <p class="tooltip" style="display: none; top: 0; left: 0;">Подсказка</p>
   
