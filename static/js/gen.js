@@ -1,25 +1,40 @@
 function addCity() {
+ showWinBkg(closeWindow);
  document.getElementById('win-add-city').style.display = 'block';
+ document.getElementById('win-add-city').classList.add('show');
 }
 
 function addRecord() {
+ showWinBkg(closeWindow);
  document.getElementById('win-add-record').style.display = 'block';
+ document.getElementById('win-add-record').classList.add('show');
 }
 
 function showAbout() {
+ showWinBkg(closeWindow);
  document.getElementById('win-about').style.display = 'block';
+ document.getElementById('win-about').classList.add('show');
 }
 
 function showVersion() {
+ showWinBkg(closeWindow);
  document.getElementById('win-version').style.display = 'block';
+ document.getElementById('win-version').classList.add('show');
 }
 
 function showSymbols() {
+ showWinBkg(closeWindow);
  document.getElementById('win-symbols').style.display = 'block';
+ document.getElementById('win-symbols').classList.add('show');
 }
 
-function closeWindow(id) {
- document.getElementById(id).style.display = 'none';
+function closeWindow(event, id) {
+ closeWinBkg();
+ let wins = document.getElementsByClassName('window');
+ for (let i = 0; i < wins.length; i++) {
+  wins[i].classList.remove('show');
+  setTimeout(() => wins[i].style.display = 'none', 300);
+ }
 }
 
 var addRippleEffect = function (e) {
@@ -77,4 +92,16 @@ function closeMoreOpt() {
  moreopt.classList.remove('show');
  setTimeout(() => moreopt.style.display = 'none', 500);
  moreopt_btn.onclick = showMoreOpt;
+}
+
+function showWinBkg() {
+ let bkg = document.getElementsByClassName('win-bkg')[0];
+ bkg.style.display = 'block';
+ bkg.onclick = closeWindow;
+}
+
+function closeWinBkg() {
+ let bkg = document.getElementsByClassName('win-bkg')[0];
+ bkg.style.display = 'none';
+ bkg.onclick = null;
 }
