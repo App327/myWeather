@@ -99,20 +99,6 @@ button:hover {
  background: royalblue;
 }
 
-.btn_alt {
- padding: 5px;
- border: 2px solid dodgerblue;
- background: white;
- color: black;
- height: 50px;
- min-width: 50px;
- border-radius: 5px;
- user-select: none;
-}
-.btn_alt:hover {
- background: rgb(245, 245, 255);
-}
-
 fieldset {
  border: 2px solid dodgerblue;
  border-radius: 3px;
@@ -130,12 +116,20 @@ fieldset {
  left: 5%;
  overflow-y: auto;
  padding: 5px;
- animation: showWin 450ms forwards;
+ opacity: 0;
+ animation: closeWin 300ms forwards;
+}
+.window.show {
+ animation: showWin 300ms forwards;
 }
 
 @keyframes showWin {
- from { transform: scale(80%, 80%); }
- to { transform: scale(100%, 100%); }
+ from { opacity: 0; transform: scale(70%, 70%); }
+ to { opacity: 1; transform: scale(100%, 100%); }
+}
+@keyframes closeWin {
+ from { opacity: 1; transform: scale(100%, 100%); }
+ to { opacity: 0; transform: scale(70%, 70%); }
 }
 
 .win-close {
@@ -229,32 +223,34 @@ td {
 }
 
 .moreopt {
- min-height: 100px;
- min-width: 50%;
- border-radius: 10px;
+ height: 200px;
+ width: 200px;
+ border-radius: 5px;
  background: white;
  box-shadow: 0 0 7px grey;
  position: fixed;
- top: 0;
- right: 10px;
+ top: 20px;
+ right: 0px;
  opacity: 0;
- animation: closeMoreOpt 350ms forwards;
+ overflow: hidden;
+ animation: closeMoreOpt 300ms forwards;
 }
 
 .moreopt.show {
- top: 75px;
+ top: 60px;
  opacity: 1;
- animation: showMoreOpt 350ms forwards;
+ animation: showMoreOpt 300ms forwards;
 }
 
 @keyframes showMoreOpt {
- from { top: 0; opacity: 0; }
- to { top: 75px; opacity: 1; }
+ 0% { top: 20px; right: 0px; height: 0px; width: 0px; opacity: 0; }
+ 75% { height: 200px; width: 200px; opacity: 1; }
+ 100% { top: 60px; right: 10px; }
 }
-
 @keyframes closeMoreOpt {
- from { top: 75px; opacity: 1; }
- to { top: 0; opacity: 0; }
+ 0% { top: 60px; right: 10px; height: 200px; width: 200px; opacity: 1; }
+ 75% { height: 0px; width: 0px; }
+ 100% { top: 20px; right: 0px; opacity: 0; }
 }
 
 .moreopt button {
@@ -262,10 +258,80 @@ td {
  height: 50px;
  background: white;
  color: black;
- border-radius: 10px;
+ border-radius: 0px;
  border: none;
  text-align: left;
+ display: flex;
+ align-items: center;
+ flex-direction: row;
 }
 .moreopt button:hover {
  background: rgba(100, 100, 100, 0.1);
+}
+.moreopt button:focus {
+ outline: none;
+}
+
+.moreopt button .icon {
+ margin-left: 2.5px;
+ margin-right: 2.5px;
+ color: darkblue;
+}
+.moreopt button .text {
+ margin-bottom: 2.5px;
+ margin-left: 2.5px;
+}
+
+header {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 60px;
+ background: white;
+ box-shadow: 0 0 7px grey;
+ user-select: none;
+}
+
+header h2 {
+ color: navy;
+ position: absolute;
+ top: -5px;
+ left: 70px;
+}
+
+header .ui-action-1 {
+ position: absolute;
+ top: 5px;
+}
+
+header .ui-action-1#moreopt-btn {
+ right: 10px;
+}
+
+header .ui-action-1#menu-btn {
+ left: 10px;
+}
+
+.ui-action-1 {
+ padding: 5px;
+ border: none;
+ background: white;
+ color: black;
+ height: 50px;
+ min-width: 50px;
+ border-radius: 5px;
+ user-select: none;
+}
+.ui-action-1:hover {
+ background: rgb(245, 245, 255);
+}
+
+.win-bkg {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: rgba(100, 100, 100, 0.7);
 }
