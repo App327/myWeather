@@ -86,12 +86,21 @@ function showMoreOpt() {
  moreopt.style.display = 'block';
  moreopt.classList.add('show');
  moreopt_btn.onclick = closeMoreOpt;
+ setTimeout(() => document.onclick = checkMoreOptClose, event, 400);
 }
 
 function closeMoreOpt() {
  moreopt.classList.remove('show');
- setTimeout(() => moreopt.style.display = 'none', 500);
+ setTimeout(() => moreopt.style.display = 'none', 310);
  moreopt_btn.onclick = showMoreOpt;
+}
+
+function checkMoreOptClose(event) {
+ if (event.target.className.includes('moreopt') || event.target.className.includes('moreopt-btn')) {
+ } else {
+  closeMoreOpt();
+  document.onclick = null;
+ }
 }
 
 function showWinBkg() {
