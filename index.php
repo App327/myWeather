@@ -26,12 +26,6 @@ echo '<!DOCTYPE html>
 
   <div style="height: 80px;"></div>
 
-  <div class="moreopt" style="display: none;">
-   <button onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined icon">terminal</span> <span class="text">Терминал</span></button>
-   <button onclick="window.location.href = \'https://github.com/App327/myWeather/issues/new\'"><span class="material-symbols-outlined icon">bug_report</span> Сообщить об ошибке</span></button>
-   <button onclick="showAbout()"><span class="material-symbols-outlined icon">info</span> <span class="text">О сервисе</span></button>
-   <button onclick="showVersion()"><span class="material-symbols-outlined icon">info</span> <span class="text">Версия</span></button>
-  </div>
   <noscript><div class="notification warning"><img src="/static/img/ic/warning.png" alt="Значок предупреждения"> В этом браузере отключён JavaScript. Вы не можете делать большинство действий.</div></noscript>
   <form action="/" method="get">
    <fieldset>
@@ -59,7 +53,7 @@ if ($link == false) {
     <input type="submit" style="float: right" class="material-symbols-outlined btn" value="check" data-tooltip="Применить фильтры" aria-label="Применить фильтры и показать подходящие записи">
    </fieldset>
   </form>
-  <button onclick="addRecord()">Добавить запись</button> <button onclick="showSymbols()" class="btn_alt">Условные обозначения</button>
+  <button onclick="addRecord()">Добавить запись</button>
   <br /><br />
 ';
  echo '  <div style="width: 100%; overflow-x: auto">
@@ -106,6 +100,14 @@ if ($link == false) {
 echo '
     </tbody>
    </table>
+  </div>
+
+  <div class="moreopt" style="display: none;">
+   <button class="moreopt-btn" onclick="window.location.href = \'/terminal.php\'"><span class="material-symbols-outlined icon">terminal</span> <span class="text">Терминал</span></button>
+   <button class="moreopt-btn" onclick="window.location.href = \'https://github.com/App327/myWeather/issues/new\'"><span class="material-symbols-outlined icon">bug_report</span> Сообщить об ошибке [<abbr title="GitHub">GH</abbr>]</span></button>
+   <button class="moreopt-btn" onclick="showSymbols()"><span class="material-symbols-outlined icon">category</span> Условные обозначения</span></button>
+   <button class="moreopt-btn" onclick="showAbout()"><span class="material-symbols-outlined icon">info</span> <span class="text">О сервисе</span></button>
+   <button class="moreopt-btn" onclick="showVersion()"><span class="material-symbols-outlined icon">info</span> <span class="text">Версия</span></button>
   </div>
 
   <div class="win-bkg" style="display: none;"></div>
@@ -184,8 +186,8 @@ echo '
   <div class="window" id="win-version" style="display: none">
    <button onclick="closeWindow(\'win-version\')" class="material-symbols-outlined win-close">close</button>
    <h2>Версия</h2>
-   <p><b>Версия:</b> 3.0-alpha1</p>
-   <p><b>Дата выпуска:</b> 20/03/2025</p>
+   <p><b>Версия:</b> 3.0-alpha2</p>
+   <p><b>Дата выпуска:</b> 22/03/2025; 11:09 (UTC+03:00)</p>
    <hr noshade color="silver">
    <p>Лицензия MIT / MIT License</p>
    <p>© App327, 2023–2025</p>
