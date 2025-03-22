@@ -223,8 +223,8 @@ td {
 }
 
 .moreopt {
- height: 200px;
- width: 200px;
+ height: 0px;
+ width: 0px;
  border-radius: 5px;
  background: white;
  box-shadow: 0 0 7px grey;
@@ -233,27 +233,31 @@ td {
  right: 0px;
  opacity: 0;
  overflow: hidden;
+ pointer-events: none;
  animation: closeMoreOpt 300ms forwards;
 }
 
 .moreopt.show {
+ height: 250px;
+ width: 210px;
  top: 60px;
  opacity: 1;
+ pointer-events: all;
  animation: showMoreOpt 300ms forwards;
 }
 
 @keyframes showMoreOpt {
- 0% { top: 20px; right: 0px; height: 0px; width: 0px; opacity: 0; }
- 75% { height: 200px; width: 200px; opacity: 1; }
- 100% { top: 60px; right: 10px; }
+ 0% { pointer-events: none; top: 20px; right: 0px; height: 0px; width: 0px; opacity: 0; }
+ 75% { height: 250px; width: 210px; opacity: 1; }
+ 100% { pointer-events: all; top: 60px; right: 10px; }
 }
 @keyframes closeMoreOpt {
- 0% { top: 60px; right: 10px; height: 200px; width: 200px; opacity: 1; }
+ 0% { pointer-events: all; top: 60px; right: 10px; height: 250px; width: 210px; opacity: 1; }
  75% { height: 0px; width: 0px; }
- 100% { top: 20px; right: 0px; opacity: 0; }
+ 100% { pointer-events: none; top: 20px; right: 0px; opacity: 0; }
 }
 
-.moreopt button {
+.moreopt .moreopt-btn {
  width: 100%;
  height: 50px;
  background: white;
@@ -264,22 +268,24 @@ td {
  display: flex;
  align-items: center;
  flex-direction: row;
+ white-space: nowrap; /* Для корректной анимации открытия/закрытия */
 }
-.moreopt button:hover {
+.moreopt .moreopt-btn:hover {
  background: rgba(100, 100, 100, 0.1);
 }
-.moreopt button:focus {
+.moreopt .moreopt-btn:focus {
  outline: none;
 }
 
-.moreopt button .icon {
+.moreopt .moreopt-btn .icon {
  margin-left: 2.5px;
  margin-right: 2.5px;
  color: darkblue;
 }
-.moreopt button .text {
+.moreopt .moreopt-btn .text {
  margin-bottom: 2.5px;
  margin-left: 2.5px;
+ white-space: nowrap;
 }
 
 header {
